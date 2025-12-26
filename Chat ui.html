@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Chat</title>
+    <style>
+        /* Base Styles & Reset */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: #f0f2f5; 
+            height: 100vh; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+        }
+
+        /* Container Layout */
+        .chat-container {
+            width: 95%;
+            max-width: 1200px;
+            height: 90vh;
+            background: #fff;
+            display: flex;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        /* Sidebar - Contact List */
+        .sidebar {
+            width: 350px;
+            border-right: 1px solid #ddd;
+            display: flex;
+            flex-direction: column;
+        }
+        .sidebar-header {
+            padding: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            border-bottom: 1px solid #eee;
+        }
+        .contact-list {
+            flex: 1;
+            overflow-y: auto;
+        }
+        .contact {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .contact:hover { background: #f9f9f9; }
+        .contact.active { background: #e7f3ff; }
+        .avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #ccc;
+            margin-right: 15px;
+        }
+
+        /* Main Chat Area */
+        .main-chat {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background: #ffffff;
+        }
+        .chat-header {
+            padding: 15px 20px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        /* Messages Area */
+        .messages-display {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background: #fdfdfd;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .message {
+            max-width: 60%;
+            padding: 12px 16px;
+            border-radius: 18px;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        .received {
+            align-self: flex-start;
+            background: #f0f0f0;
+            color: #333;
+            border-bottom-left-radius: 4px;
+        }
+        .sent {
+            align-self: flex-end;
+            background: #0084ff;
+            color: white;
+            border-bottom-right-radius: 4px;
+        }
+
+        /* Input Area */
+        .input-area {
+            padding: 20px;
+            border-top: 1px solid #eee;
+            display: flex;
+            gap: 10px;
+        }
+        input[type="text"] {
+            flex: 1;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            outline: none;
+        }
+        button {
+            padding: 10px 20px;
+            background: #0084ff;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover { background: #0073e6; }
+    </style>
+</head>
+<body>
+
+<div class="chat-container">
+    <div class="sidebar">
+        <div class="sidebar-header">Messages</div>
+        <div class="contact-list">
+            <div class="contact active">
+                <div class="avatar" style="background: #4a90e2;"></div>
+                <div class="info">
+                    <div><strong>Jane Doe</strong></div>
+                    <div style="font-size: 12px; color: #777;">Typing...</div>
+                </div>
+            </div>
+            <div class="contact">
+                <div class="avatar" style="background: #50e3c2;"></div>
+                <div class="info">
+                    <div><strong>John Smith</strong></div>
+                    <div style="font-size: 12px; color: #777;">See you tomorrow!</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-chat">
+        <div class="chat-header">
+            Jane Doe
+        </div>
+        
+        <div class="messages-display">
+            <div class="message received">Hey! How are you doing today?</div>
+            <div class="message sent">I'm doing great, thanks for asking! Just working on a new UI.</div>
+            <div class="message received">That sounds awesome. Can't wait to see it!</div>
+            <div class="message sent">I'll send a screenshot soon. 🚀</div>
+        </div>
+
+        <div class="input-area">
+            <input type="text" placeholder="Type a message...">
+            <button>Send</button>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
